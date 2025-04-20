@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { Bird } from './Bird';
 import { Pipe } from './Pipe';
@@ -22,7 +21,8 @@ export const Game = () => {
   
   const gameLoopRef = useRef<number>();
   
-  const jump = () => {
+  const handleInteraction = (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault();
     if (!gameStarted) {
       setGameStarted(true);
     }
@@ -101,8 +101,9 @@ export const Game = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-purple-100 to-purple-200">
       <div 
-        className="relative w-[400px] h-[500px] bg-gradient-to-b from-blue-300 to-blue-400 rounded-lg overflow-hidden shadow-xl cursor-pointer"
-        onClick={jump}
+        className="relative w-[400px] h-[500px] bg-gradient-to-b from-blue-300 to-blue-400 rounded-lg overflow-hidden shadow-xl"
+        onClick={handleInteraction}
+        onTouchStart={handleInteraction}
       >
         <Bird position={birdPosition} />
         <Pipe height={pipeHeight} position={pipePosition} />
