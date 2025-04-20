@@ -2,7 +2,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'app.lovable.874122baff9945adac1147d9f826dc5d',
+  appId: 'com.lovable.soaringflaps',
   appName: 'soaring-android-flaps',
   webDir: 'dist',
   server: {
